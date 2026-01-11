@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer style={styles.footer}>
       <p style={styles.text}>
-        Desenvolvido com ❤️ por <strong>Arthur Alves</strong>
+        Desenvolvido por <strong>Arthur Alves</strong>
       </p>
       <div style={styles.links}>
         <a href="https://www.linkedin.com/in/arthur-alves-600aa31b0/" target="_blank" rel="noreferrer" style={styles.link}>
