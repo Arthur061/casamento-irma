@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import { supabase } from './services/supabase';
+import { Header } from './components/Header';
+import { ProductCard } from './components/ProductCard';
+import { DetailsModal } from './components/DetailsModal'; // Novo Import
+import './styles/global.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [presentes, setPresentes] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null); // Produto aberto no detalhes
+
+  async function fetchPresentes() {
+    const { data } = await supabase.from('presentes').select('*').order('id');
+    setPresentes(data || []);
+  }
+
+  useEffect(() => { fetchPresentes(); }, []);
+
+  // Abre o Pix (ainda vamos fazer o modal de pix real depois)
+  function handleOpenPix(produto) {
+    alert(`PIX para: ${produto.nome}. \nImplementaremos o QR Code no próximo passo!`);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Header />
+      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
+        {presentes.map(item => (
+          <ProductCard 
+            key={item.id} 
+            product={item} 
+            onClick={setSelectedProduct} // Ao clicar, define este produto como selecionado
+          />
+        ))}
+      </main>
+
+      {/* Se tiver um produto selecionado, mostra o Modal de Detalhes */}
+      {selectedProduct && (
+        <DetailsModal 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)} // Fecha o modal
+          onOpenPix={handleOpenPix}
+        />
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
