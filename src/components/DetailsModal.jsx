@@ -1,11 +1,15 @@
+import React from 'react';
+
 export function DetailsModal({ product, onClose, onOpenPix }) {
   if (!product) return null;
 
-  // Organiza opções do mais barato pro mais caro
-  const options = product.opcoes ? product.opcoes.sort((a, b) => a.preco - b.preco) : [];
+  // AJUSTE 1: Cria uma cópia com [...array] antes de ordenar para não alterar o original
+  const options = product.opcoes 
+    ? [...product.opcoes].sort((a, b) => parseFloat(a.preco) - parseFloat(b.preco)) 
+    : [];
   
   // Formata dinheiro
-  const formatMoney = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const formatMoney = (val) => Number(val).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
     <div style={{
@@ -22,22 +26,22 @@ export function DetailsModal({ product, onClose, onOpenPix }) {
         
         {/* Botão Fechar */}
         <button onClick={onClose} style={{ 
-          position: 'absolute', top: '15px', right: '15px', background: 'transparent', fontSize: '1.5rem', cursor: 'pointer' 
+          position: 'absolute', top: '15px', right: '15px', background: 'transparent', fontSize: '1.5rem', cursor: 'pointer', border: 'none' 
         }}>✖</button>
 
         {/* Imagem Grande */}
         <img src={product.imagem_url} alt={product.nome} style={{ width: '100%', height: '250px', objectFit: 'contain' }} />
 
         {/* Título e Descrição */}
-        <h2 style={{ color: '#333' }}>{product.nome}</h2>
+        <h2 style={{ color: '#333', margin: 0 }}>{product.nome}</h2>
         <p style={{ color: '#666', lineHeight: '1.6' }}>
           {product.descricao || "Um presente especial para o casal."}
         </p>
 
-        <hr style={{ border: '0', borderTop: '1px solid #eee' }} />
+        <hr style={{ border: '0', borderTop: '1px solid #eee', width: '100%' }} />
 
         {/* Lista de Opções de Compra */}
-        <h3 style={{ fontSize: '1.1rem' }}>Escolha uma opção para comprar:</h3>
+        <h3 style={{ fontSize: '1.1rem', margin: 0 }}>Escolha uma opção para comprar:</h3>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {options.map((opt, index) => (
@@ -62,9 +66,10 @@ export function DetailsModal({ product, onClose, onOpenPix }) {
           ))}
         </div>
 
-        {/* Botão Pix Geral */}
-        <button onClick={() => { onClose(); onOpenPix(product); }} style={{
-          width: '100%', padding: '15px', backgroundColor: '#e74c3c', color: 'white',
+        {}
+        {/* Botão para abrir o modal de Pix */}
+        <button onClick={() => onOpenPix(product)} style={{
+          width: '100%', padding: '15px', backgroundColor: '#e74c3c', color: 'white', border: 'none', cursor: 'pointer',
           borderRadius: '8px', fontWeight: 'bold', fontSize: '1rem', marginTop: '10px'
         }}>
           Prefiro enviar o valor via Pix
