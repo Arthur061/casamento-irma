@@ -10,7 +10,7 @@ export function Header() {
     }}>
       <h1 style={{ fontSize: '3.5rem', marginBottom: '10px' }}>Leticia & Diogo</h1>
       <p style={{ fontSize: '1.2rem', letterSpacing: '2px', textTransform: 'uppercase' }}>
-        Lista de Presentes
+        Lista de sugestões de presentes
       </p>
       <p style={{ marginTop: '10px', fontStyle: 'italic' }}>
         08 de março de 2026

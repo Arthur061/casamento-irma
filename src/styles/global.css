@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; /* Força a fonte moderna */
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;  Força a fonte moderna */
 }
 
 body {
