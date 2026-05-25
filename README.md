@@ -1,4 +1,3 @@
-Aqui está uma proposta de ficheiro `README.md` completo e bem estruturado para o teu projeto, com base no código que partilhaste. Podes copiar e colar diretamente na raiz do teu repositório.
 
 ---
 
