@@ -1,16 +1,32 @@
-# React + Vite
+# 💍 Lista de Presentes - Casamento Letícia & Diogo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web interativa desenvolvida em React para gerir a lista de presentes de um casamento. Esta plataforma permite aos convidados visualizar opções de presentes, confirmar compras feitas em lojas externas ou optar por presentear os noivos diretamente através de transferência PIX (com geração dinâmica de QR Code).
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Catálogo de Presentes:** Listagem de produtos com imagens, descrições e múltiplas opções de preços e lojas.
+- **Integração PIX Dinâmica:** Geração automática de *Payload* PIX (Copia e Cola) e QR Code para cada presente, com base no valor selecionado.
+- **Confirmação de Compra:** Os convidados podem registar o seu nome e deixar uma mensagem aos noivos após a compra, atualizando o estado do presente para "Reservado" ou "Esgotado".
+- **Gestão de Estado em Tempo Real:** Integração com base de dados Supabase para manter a lista de presentes sempre atualizada para todos os utilizadores.
+- **Painel de Administração (Oculto):** Geração de um relatório em PDF com o resumo de todos os presentes arrecadados, mensagens dos convidados e o valor total confirmado.
 
-## React Compiler
+## 🛠️ Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** [React 19](https://react.dev/)
+- **Ferramenta de Build:** [Vite](https://vitejs.dev/)
+- **Base de Dados / BaaS:** [Supabase](https://supabase.com/)
+- **Geração de PDF:** `jspdf` e `jspdf-autotable`
+- **Geração de QR Code:** `qrcode.react`
+- **Estilização:** CSS Puro (com variáveis globais e flexbox/grid)
 
-## Expanding the ESLint configuration
+## 🚀 Como correr o projeto localmente
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Pré-requisitos
+
+Certifica-te de que tens o [Node.js](https://nodejs.org/) instalado na tua máquina.
+
+### Instalação
+
+1. Clona este repositório:
+   ```bash
+   git clone [https://github.com/Arthur061/casamento-irma.git](https://github.com/Arthur061/casamento-irma.git)
