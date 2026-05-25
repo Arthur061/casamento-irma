@@ -1,3 +1,8 @@
+Aqui está uma proposta de ficheiro `README.md` completo e bem estruturado para o teu projeto, com base no código que partilhaste. Podes copiar e colar diretamente na raiz do teu repositório.
+
+---
+
+```markdown
 # 💍 Lista de Presentes - Casamento Letícia & Diogo
 
 Uma aplicação web interativa desenvolvida em React para gerir a lista de presentes de um casamento. Esta plataforma permite aos convidados visualizar opções de presentes, confirmar compras feitas em lojas externas ou optar por presentear os noivos diretamente através de transferência PIX (com geração dinâmica de QR Code).
@@ -30,3 +35,67 @@ Certifica-te de que tens o [Node.js](https://nodejs.org/) instalado na tua máqu
 1. Clona este repositório:
    ```bash
    git clone [https://github.com/Arthur061/casamento-irma.git](https://github.com/Arthur061/casamento-irma.git)
+
+```
+
+2. Entra no diretório do projeto:
+```bash
+cd casamento-irma
+
+```
+
+
+3. Instala as dependências:
+```bash
+npm install
+
+```
+
+
+
+### Configuração das Variáveis de Ambiente
+
+Cria um ficheiro chamado `.env` na raiz do projeto e adiciona as tuas credenciais do Supabase:
+
+```env
+VITE_SUPABASE_URL=tua_url_do_supabase_aqui
+VITE_SUPABASE_ANON_KEY=tua_chave_anonima_do_supabase_aqui
+
+```
+
+### Executar a aplicação
+
+Inicia o servidor de desenvolvimento do Vite:
+
+```bash
+npm run dev
+
+```
+
+A aplicação estará disponível no teu navegador, geralmente em `http://localhost:5173`.
+
+## 🗄️ Estrutura da Base de Dados (Supabase)
+
+A aplicação espera uma tabela chamada `presentes` com a seguinte estrutura principal:
+
+* `id` (int)
+* `nome` (text)
+* `descricao` (text)
+* `imagem_url` (text)
+* `preco` (numeric)
+* `status` (boolean) - Indica se o item está visível/ativo.
+* `opcoes` (jsonb) - Array de objetos contendo as variações do presente (nome, link, preco, reservado, comprado_por, mensagem, etc).
+* `pix_chave` (text) - Chave PIX específica do item (opcional).
+
+## 👨‍💻 Desenvolvido por
+
+**Arthur Alves**
+
+* [LinkedIn](https://www.linkedin.com/in/arthur-alves-600aa31b0/)
+* [GitHub](https://github.com/Arthur061)
+
+*Aceito encomendas de projetos web e sistemas.*
+
+```
+
+```
